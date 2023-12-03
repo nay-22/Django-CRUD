@@ -145,6 +145,9 @@ Clone the project
 
 Go to the project directory
 ```bash
+  cd Django-CRUD
+```
+```bash
   cd artist_api
 ```
 
