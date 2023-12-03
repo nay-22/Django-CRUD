@@ -33,8 +33,8 @@ Django CRUD API using Django rest_framework
    - Request(POST):
      ```json
      {
-       "username": "string",
-       "password": "string"
+       "username": "luffy",
+       "password": "luffy@1234"
      }
      ```
    - Response:
