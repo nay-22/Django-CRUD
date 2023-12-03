@@ -13,7 +13,7 @@ Django CRUD API using Django rest_framework
      - Instagram(IG)
      - Other(OT)
     
-## API Endpoints and Usage
+## API Endpoints and Usage Examples
 1) ### User registration : **api/register/**
    - Request(POST):
      ```json
