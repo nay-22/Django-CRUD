@@ -44,7 +44,7 @@ Django CRUD API using Django rest_framework
      }
      ```
 3) ### Retrieve list of all works: **api/works/**
-   - Request(GET)
+   - Request(GET):header - Authorization:Token 2ceb5e8974eaa1bff87223fa3e14918f9a18568b
    - Response:
      ```json
      [
@@ -61,7 +61,7 @@ Django CRUD API using Django rest_framework
      ]
      ```
 4) ### Retrive works list by work_type: **api/works?work_type=[work_type]**
-   - Request(GET): query params - work_type=IG
+   - Request(GET): query params - work_type=IG, header - Authorization:Token 2ceb5e8974eaa1bff87223fa3e14918f9a18568b
    - Response
      ```json
      [
@@ -78,7 +78,7 @@ Django CRUD API using Django rest_framework
      ]
      ```
 5) ### Retrieve works list by artist: **api/works?artist=[artist_name]**
-   - Request(GET): query params - artist=potion
+   - Request(GET): query params - artist=potion, header - Authorization:Token 2ceb5e8974eaa1bff87223fa3e14918f9a18568b
    - Response
      ```json
      [
@@ -100,7 +100,7 @@ Django CRUD API using Django rest_framework
      ]
      ```
 6) ### Retrieve list of all artists: **api/artists**
-   - Request(GET)
+   - Request(GET: header - Authorization:Token 2ceb5e8974eaa1bff87223fa3e14918f9a18568b
    - Response
      ```json
      [
