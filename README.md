@@ -18,14 +18,14 @@ Django CRUD API using Django rest_framework
    - Request(POST):
      ```json
      {
-       "username": "string",
-       "password": "string"
+       "username": "luffy",
+       "password": "luffy@1234"
      }
      ```
    - Response:
      ```json
      {
-        "username": "string",
+        "username": "luffy",
         "password": "string(encrypted)"
      }
      ```
@@ -40,7 +40,7 @@ Django CRUD API using Django rest_framework
    - Response:
      ```json
      {
-        "token": "string"
+        "token": "2ceb5e8974eaa1bff87223fa3e14918f9a18568b"
      }
      ```
 3) ### Retrieve list of all works: **api/works/**
