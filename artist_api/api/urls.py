@@ -12,6 +12,9 @@ urlpatterns = [
     # /api/works?artist=[Artist Name]/
     path('works/', views.WorkListView.as_view()),
     # /api/work/create
-    path('work/create/', views.WorkCreateView.as_view())
-    
+    path('work/create/', views.WorkCreateView.as_view()),
+    # /api/generate-description/
+    path('generate-description/', views.ProductDescriptionView.as_view()),
+    # /api/extract-text/
+    path('extract-text/', views.ImageTextExtractionView.as_view()),
 ]
