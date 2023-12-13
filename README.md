@@ -14,7 +14,7 @@ Django CRUD API using Django rest_framework
      - Other(OT)
     
 ## API Endpoints and Usage Examples
-1) ### User registration : **api/register/**
+1) ### User registration : **/api/register/**
    - Request(POST):
      ```json
      {
@@ -29,7 +29,7 @@ Django CRUD API using Django rest_framework
         "password": "string(encrypted)"
      }
      ```
-2) ### User login (token request): **api/auth/**
+2) ### User login (token request): **/api/auth/**
    - Request(POST):
      ```json
      {
@@ -43,8 +43,8 @@ Django CRUD API using Django rest_framework
         "token": "2ceb5e8974eaa1bff87223fa3e14918f9a18568b"
      }
      ```
-3) ### Retrieve list of all works: **api/works/**
-   - Request(GET):header - Authorization:Token 2ceb5e8974eaa1bff87223fa3e14918f9a18568b
+3) ### Retrieve list of all works: **/api/works/**
+   - Request(GET): header - Authorization:Token 2ceb5e8974eaa1bff87223fa3e14918f9a18568b
    - Response:
      ```json
      [
@@ -60,9 +60,9 @@ Django CRUD API using Django rest_framework
         }
      ]
      ```
-4) ### Retrive works list by work_type: **api/works?work_type=[work_type]**
+4) ### Retrive works list by work_type: **/api/works?work_type=[work_type]**
    - Request(GET): query params - work_type=IG, header - Authorization:Token 2ceb5e8974eaa1bff87223fa3e14918f9a18568b
-   - Response
+   - Response:
      ```json
      [
        {
@@ -77,9 +77,9 @@ Django CRUD API using Django rest_framework
         }
      ]
      ```
-5) ### Retrieve works list by artist: **api/works?artist=[artist_name]**
+5) ### Retrieve works list by artist: **/api/works?artist=[artist_name]**
    - Request(GET): query params - artist=potion, header - Authorization:Token 2ceb5e8974eaa1bff87223fa3e14918f9a18568b
-   - Response
+   - Response:
      ```json
      [
        {
@@ -99,9 +99,9 @@ Django CRUD API using Django rest_framework
        }
      ]
      ```
-6) ### Retrieve list of all artists: **api/artists**
-   - Request(GET: header - Authorization:Token 2ceb5e8974eaa1bff87223fa3e14918f9a18568b
-   - Response
+6) ### Retrieve list of all artists: **/api/artists**
+   - Request(GET): header - Authorization:Token 2ceb5e8974eaa1bff87223fa3e14918f9a18568b
+   - Response:
      ```json
      [
        {
@@ -132,11 +132,100 @@ Django CRUD API using Django rest_framework
       }
      ]
      ```
+7) ### Automated Content Generation(using OpenAI): **/api/generate-description/**
+   - Request(POST): header - Authorization:Token 2ceb5e8974eaa1bff87223fa3e14918f9a18568b
+   - Body:
+     ``` json
+     {
+       "product_title": "Samsung Galaxy S22"
+     }
+     ```
+   - Response:
+     ``` json
+     {
+       "product_description": "The Samsung Galaxy S22 is a flagship smartphone with a stunning 6.2-inch Quad HD+ Dynamic AMOLED display. Its powerful Exynos 2200 processor and 8GB of RAM ensure smooth    performance, while the 108MP triple camera system captures breathtaking photos and videos. It also features an in-display fingerprint sensor and a large 5000mAh battery.",
+       "product_keywords": [
+           "Samsung Galaxy S22",
+           "flagship smartphone",
+           "6.2-inch Quad HD+ Dynamic AMOLED display",
+           "Exynos 2200 processor",
+           "8GB of RAM",
+           "smooth performance",
+           "108MP triple camera system",
+           "breathtaking photos and videos",
+           "in-display fingerprint sensor",
+           "large 5000mAh battery."
+       ]
+     }
+     ```
+8) ###  Image Recognition(using Amazon Rekognition): **/api/extract-text/**
+   - Request(POST): header - Authorization:Token 2ceb5e8974eaa1bff87223fa3e14918f9a18568b
+   - Body: **multipart/form-data**, key => image
+   - Response:
+     ``` json
+     {
+       "texts": [
+           "HALLMARK",
+           "FREE",
+           "IMMIGRATION CONSULTANTS",
+           "milestone to your success",
+           "FREE IELTS",
+           "PREPARATION",
+           "FROM",
+           "HALLMARK",
+           "S",
+           "Join now",
+           "www.hallmarkimmigration.com",
+           "+91 8872038888",
+           "HALLMARK",
+           "FREE",
+           "IMMIGRATION",
+           "CONSULTANTS",
+           "milestone",
+           "to",
+           "your",
+           "success",
+           "FREE",
+           "IELTS",
+           "PREPARATION",
+           "FROM",
+           "HALLMARK",
+           "S",
+           "Join",
+           "now",
+           "www.hallmarkimmigration.com",
+           "+91",
+           "8872038888"
+        ]
+     }
+     ```
 
 ## Local Setup
 Install packages/dependencies
 ```bash
   pip install djangorestframework
+```
+```bash
+  pip install openai
+```
+```bash
+  pip install boto3
+```
+```bash
+  pip install python-decouple
+```
+```bash
+  setx OPENAI_API_KEY "Your OpenAI Key"
+```
+AWS setup, use AWS CLI or setup using environment variables
+```bash
+  aws configure
+```
+```bash
+  AWS Access Key ID [None]: YOUR_ACCESS_KEY_ID
+  AWS Secret Access Key [None]: YOUR_SECRET_ACCESS_KEY
+  Default region name [None]: YOUR_REGION_NAME
+  Default output format [None]: json
 ```
 Clone the project
 ```bash
